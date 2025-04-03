@@ -1,0 +1,81 @@
+{
+  "topics": [
+    {
+      "topic": "Minimax Stochastic Programs",
+      "sub_topics": [
+        "Minimax stochastic programs involve minimizing the supremum of an expected function f(x, y) over sets X and Y, where the expectation is with respect to a random vector \\u03be. The corresponding SAA problem is obtained by approximating the expectation with the sample average.",
+        "Under assumptions such as the Carath\\u00e9odory property, non-emptiness, compactness, and dominance by an integrable function, the sample average function converges uniformly with probability 1 to the true function, and the optimal value of the SAA problem converges to the optimal value of the true problem.",
+        "In the convex-concave case, where the sets X and Y are convex and the function F(\\u00b7, \\u00b7, \\u03be) is convex-concave, the minimax stochastic program and its dual have non-empty and bounded sets of optimal solutions, and the optimal values are equal. The sample average estimators can be analyzed using a function space of continuous functions equipped with the sup-norm, and the Delta theorem can be used to establish convergence results."
+      ]
+    },
+    {
+      "topic": "Stochastic Generalized Equations",
+      "sub_topics": [
+        "Stochastic generalized equations involve finding a point x in R^n such that \\u03c6(x) \\u2208 \\u0393(x), where \\u03c6(x) is the expected value of a mapping \\u03a6(x, \\u03be) and \\u0393 is a multifunction. This includes ordinary equations and variational inequalities.",
+        "The multifunction \\u0393(x) is assumed to be closed, meaning that if x_k converges to x, y_k \\u2208 \\u0393(x_k), and y_k converges to y, then y \\u2208 \\u0393(x). For variational inequalities, this assumption always holds. The SAA approach involves using a sample average estimate of the mapping.",
+        "A solution x \\u2208 S is strongly regular if there exist neighborhoods N1 and N2 of 0 and x, respectively, such that for every \\u03b4 \\u2208 N1, the linearized generalized equation has a unique solution in N2, denoted x(\\u03b4), and x(\\u00b7) is Lipschitz continuous on N1.",
+        "Under strong regularity conditions, the SAA generalized equation possesses a unique solution xN in a neighborhood of x, and xN converges to x with probability 1 as N approaches infinity. Asymptotics of SAA generalized equations estimators relate to the Jacobian matrix of the mapping and the covariance matrix of the random vector, leading to asymptotically normal distribution of the estimator under certain regularity conditions."
+      ]
+    },
+    {
+      "topic": "Monte Carlo Sampling Methods",
+      "sub_topics": [
+        "Monte Carlo sampling methods involve generating a sequence of independent random numbers uniformly distributed on the interval [0,1] and constructing the sample by an appropriate transformation. The corresponding SAA problem is then used to approximate the true problem.",
+        "Values of the sample average function fN(x) can be computed by storing the generated sample or by using a common seed number in an employed pseudorandom numbers generator (common random number generation method). Common random number generation is particularly useful to compare values of the objective function at two points, where the difference between sample average estimates is of interest; the variance of the difference is smaller when using the same sample due to positive correlation.",
+        "Exponential rates of convergence and sample size estimates in the case of a finite feasible set: the required sample size N depends logarithmically both on the size (cardinality) of the feasible set X and on the tolerance probability (significance level) \\u03b1.  In the general case, sample size estimates can be derived using assumptions about the moment-generating function of the random variable and the Lipschitz continuity of the function.",
+        "For any x\", x \\u2208 X there exists constant \\u03c3x\"),x > 0 such that the moment-generating function Mx\"),x(t) = E[etYx\"),x] of random variable Yx\"),x := [F(x\"), \\u03be) \\u2212 f(x\")] \\u2212 [F(x, \\u03be) \\u2212 f(x)] satisfies Mx\"),x(t) \\u2264 exp(\\u03c3x\"),xt2/2), \\u2200t \\u2208 R. The sample size estimate is proportional to the squared Lipschitz constant and inversely proportional to the square of the accuracy parameter, contrasting with deterministic optimization where complexity is bounded in terms of the logarithm of the accuracy parameter."
+      ]
+    },
+    {
+      "topic": "Variance-Reduction Techniques",
+      "sub_topics": [
+        "Variance-reduction techniques are methods used to reduce the variance of generated sample averages, which in turn enhances convergence of the corresponding SAA estimators. These techniques include Latin hypercube sampling and linear control random variables method.",
+        "Latin hypercube (LH) sampling involves generating a random sample Uj of the form (5.155), and consequently N replications of the first component of \\u03be are computed by the corresponding inverse transformation applied to randomly permuted Ujs. If the function is decomposable, the LH sampling ensures that each expectation is estimated in a nearly optimal way.",
+        "Linear control random variables method: for any t \\u2208 R, the expected value of F(x, \\u03be) + tA(x, \\u03be) is f(x), while Var[F(x, \\u03be) + tA(x, \\u03be)] = Var[F(x, \\u03be)] + t^2Var[A(x, \\u03be)] + 2t Cov(F(x, \\u03be), A(x, \\u03be)). The optimal value is obtained for a specific value of the parameter that minimizes the variance. However, this method is mainly suitable for estimating expectations at a fixed point and requires that the selected function is highly correlated with the function of interest.",
+        "Importance Sampling and Likelihood Ratio Methods involves changing the probability density function to reduce variance; however, this approach is sensitive to the choice of the pdf and can be unstable if the likelihood ratio function in the tail is not well-behaved."
+      ]
+    },
+    {
+      "topic": "Stochastic Approximation Method",
+      "sub_topics": [
+        "Stochastic approximation (SA) algorithms are iterative methods for solving stochastic optimization problems, where the objective function and/or constraints involve expectations. These methods use noisy or approximate gradient information to update the solution iteratively.",
+        "The classical stochastic approximation (SA) algorithm solves problem (5.1) by mimicking a simple subgradient descent method; that is, for a chosen initial point x1 \\u2208 X and a sequence \\u03b3j > 0, j = 1, ..., of stepsizes, it generates the iterates by the formula Xj+1 = \\u03a0X(xj \\u2212 \\u03b3jG(xj, \\u03bej)). Classical SA approach involves choosing stepsizes that decrease over time, and the set should be simple enough so that the corresponding projection can be easily calculated; strong convexity of the function is assumed.",
+        "The robust SA approach uses longer stepsizes with consequent averaging of the obtained iterates; under the outlined classical assumptions, the resulting algorithm exhibits the same optimal O(j\\u22121) asymptotical convergence rate while using an easy to implement and \\u201crobust\\u201d step-size policy. Under classical assumptions, the expected error of the current solution in terms of the distance to the true optimal solution is of order O(j^-1/2), and the expected error in terms of the objective value is of order O(j^-1).",
+        "The mirror descent SA algorithm is a generalization of the Euclidean SA approach allowing to adjust, to some extent, the method to the geometry, not necessary Euclidean, of the problem in question; a key component is the prox-function. By using the prox-function and distance-generating function, the mirror descent SA algorithm can achieve a better estimate of the error as it relates to the geometry of the problem compared to the Euclidean SA."
+      ]
+    },
+    {
+      "topic": "Quasi-Monte Carlo Methods",
+      "sub_topics": [
+        "Quasi-Monte Carlo methods employ the approximation E[\\u03c8(U)] \\u2248 (1/N) \\u03a3 \\u03c8(uj) for a carefully chosen (deterministic) sequence of points u1, ..., uN \\u2208 Id, where U is a random vector uniformly distributed on Id.",
+        "Star discrepancy: The star discrepancy of a point set {u1, ..., uN} C Id is defined by D*(u1, ..., uN) := supA\\u2208\\u039b |(1/N) \\u03a3 1A(uj) \\u2212 Vd(A)|, where \\u039b is the family of all subintervals of Id of the form \\u03a0[0, bi).",
+        "For an integer b \\u2265 2, the van der Corput sequence in base b is the sequence uj := \\u03c6b(j), j = 0, 1, ..., where \\u03c6b(j) is the radical-inverse function. The Halton sequence, in the bases p1, ..., pd, is defined as uj := (\\u03c6p1(j), ..., \\u03c6pd(j)) \\u2208 Id, j = 0, 1, ..., where p1 = 2, p2 = 3, ..., pd be the first d prime numbers."
+      ]
+    },
+    {
+      "topic": "Validation Analysis",
+      "sub_topics": [
+        "Validation analysis is used to evaluate the quality of a candidate solution obtained from a stochastic optimization algorithm. This typically involves estimating the optimality gap or evaluating first-order (KKT) optimality conditions.",
+        "Lower bounds for the optimal value can be achieved by solving multiple sample average approximation (SAA) problems based on independently generated samples and using the average of the optimal values as an estimate.",
+        "Estimating the optimality gap: By computing both a lower bound (through SAA) and an upper bound (through the objective function at the candidate solution), we can estimate the range within which the true optimal value lies.",
+        "Statistical testing of optimality conditions: If we are given a solution x that is feasible for the true problem, we can construct a test to decide if x is an optimal solution."
+      ]
+    },
+    {
+      "topic": "Chance Constrained Problems",
+      "sub_topics": [
+        "Chance constrained problems involve optimizing an objective function subject to a probabilistic constraint on a function C(x, \\u03be) exceeding a threshold; the chance constraint can be written as Pr{C(x, \\u03be) \\u2264 0} \\u2265 1 \\u2212 \\u03b1.",
+        "Monte Carlo sampling approach involves estimating the probability p(x) using a sample average approximation (SAA) function pN(x) and solving the resulting approximate problem.",
+        "Convex approximation approach: the function p(x) is replaced with a sample average approximation (SAA) function pN(x) and the resulting problem is solved; in this case, the feasible set of the SAA problem is convex and closed."
+      ]
+    },
+    {
+      "topic": "SAA Method Applied to Multistage Stochastic Programming",
+      "sub_topics": [
+        "The SAA method can be applied to multistage stochastic programming problems by generating a scenario tree using conditional sampling; in this scheme, a sample of realizations is generated at each stage conditional on the realizations at the previous stage.",
+        "By increasing the sample sizes at every stage, the SAA estimators of the optimal value and first-stage solutions are consistent, i.e., converge w.p. 1 to their true counterparts; however, the number of scenarios needed to solve the true problem with a reasonable accuracy grows exponentially with increase of the number of stages.",
+        "Identical conditional sampling is a modification to the conditional sampling approach, where each sample has the same components for each stage."
+      ]
+    }
+  ]
+}

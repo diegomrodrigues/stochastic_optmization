@@ -1,0 +1,78 @@
+{
+  "topics": [
+    {
+      "topic": "Introduction to Stochastic Programming",
+      "sub_topics": [
+        "Stochastic programming addresses optimization problems where the objective function involves random variables. It aims to optimize the expected value of a random outcome, modeled by a function F(x, w), where x is the decision variable and w is the random event. The stochastic optimization model minimizes the expected value function f(x) := E[F(x, w)] over a feasible set X, effectively optimizing the random outcome F(x, w) on average. This approach is justified when the Law of Large Numbers applies and the focus is on long-term performance, disregarding short-term fluctuations.",
+        "Deterministic optimization assumes known parameters, whereas stochastic programming explicitly models uncertainty. This provides solutions robust against variability and applicable when decisions must account for a range of possible scenarios. A deterministic approach to optimization may lead to unreasonable solutions when applied to stochastic problems, as it ignores the risk associated with the variability of outcomes, potentially leading to significant losses in specific realizations.",
+        "Stochastic programming is particularly useful in real-world scenarios such as portfolio selection, where decisions must balance expected return with risk, and in supply chain management, where demand and supply uncertainties need to be considered.",
+        "Risk-averse stochastic optimization considers the expected values of scalar transformations u of the outcomes, where the choice of u reflects preferences. In a minimization context, a random outcome Z\u2081 is preferred over Z\u2082 if E[u(Z\u2081)] < E[u(Z\u2082)]."
+      ]
+    },
+    {
+      "topic": "Mean-Risk Models",
+      "sub_topics": [
+        "Mean-risk models characterize uncertain outcomes Zx(w) = F(x, w) using two scalar characteristics: the mean E[Zx], which describes the expected outcome, and the risk (dispersion measure) D[Zx], which measures the uncertainty of the outcome. The mean-risk approach seeks efficient solutions by minimizing risk for a given mean or maximizing the mean for a given risk, formulating the problem as a parametric optimization to facilitate trade-off analysis between mean and risk. Scalarization is a technique used in the mean-risk approach to form a composite objective functional \u03c1[Z] := E[Z] + cD[Z], where c > 0 represents the price of risk, allowing for the generation of a range of efficient solutions by varying c.",
+        "Variance, defined as D[Z] := Var[Z], serves as a risk functional, quantifying the spread of possible outcomes around the expected value. However, it treats excesses and shortfalls equally, which may not be suitable for all risk preferences.",
+        "Semideviations, including upper and lower semideviations of order p, are risk functionals that penalize excesses over the mean (for minimization problems) or shortfalls below the mean (for maximization problems), providing a more nuanced approach to risk management. The upper semideviation of order p is defined as \u03c3+p[Z] := (E[(Z - E[Z])p]+)1/p, penalizing excesses over the mean in minimization problems, and the lower semideviation is defined analogously for maximization problems.",
+        "Weighted mean deviations from quantiles, defined as q\u03b1[Z] := E[max{(1 \u2212 \u03b1)(H\u207b\u00b9(\u03b1) \u2212 Z), \u03b1(Z \u2212 H\u207b\u00b9(\u03b1))}], quantify risk by considering deviations from a quantile, where H\u207b\u00b9(\u03b1) is the left-side \u03b1-quantile of the random variable Z, and \u03b1 is a parameter in (0, 1).",
+        "Average Value-at-Risk (AV@R), also called Conditional Value-at-Risk, is defined as AV@R\u03b1(Z) := inf{t + \u03b1\u207b\u00b9E[Z \u2212 t]+}, where Z represents losses, and it is closely related to the mean-deviation from quantile model. It is well defined and finite valued for every Z \u2208 L\u2081(\u03a9, F, P).",
+        "Coherent risk measures, satisfying convexity, monotonicity, translation equivariance, and positive homogeneity, provide a consistent framework for quantifying and managing risk, with Average Value-at-Risk being an example of such a measure."
+      ]
+    },
+    {
+      "topic": "Quantiles and Value-at-Risk",
+      "sub_topics": [
+        "The left-side \u03b1-quantile of a random variable Z is defined as H\u207b\u00b9(\u03b1) := inf{t : Hz(t) \u2265 \u03b1}, where Hz(z) = Pr(Z \u2264 z) is the cumulative distribution function, and the right-side \u03b1-quantile is defined as sup{t : Hz(t) \u2264 \u03b1}.",
+        "Value-at-Risk (V@R) is defined as the left-side quantile H\u207b\u00b9(1 \u2212 \u03b1), representing losses larger than V@R occurring with probability not exceeding \u03b1, and satisfies the property V@R(Z + \u03c4) = V@R(Z) + \u03c4 for any constant \u03c4."
+      ]
+    },
+    {
+      "topic": "Weighted Mean Deviations from Quantiles and Average Value-at-Risk",
+      "sub_topics": [
+        "Weighted mean deviation from a quantile is defined as q\u03b1[Z] := E[max{(1 \u2212 \u03b1)(H\u207b\u00b9(\u03b1) \u2212 Z), \u03b1(Z \u2212 H\u207b\u00b9(\u03b1))}], where H\u207b\u00b9(\u03b1) is the left-side \u03b1-quantile of the random variable Z. It is well-defined and finite for all Z \u2208 L\u2081(\u03a9, F, P) and can be shown to be q\u03b1[Z] = min{E[max{(1 \u2212 \u03b1)(t \u2212 Z), \u03b1(Z \u2212 t)}]}.",
+        "The risk functional q\u03b1[Z] can be used in mean-risk models, both in the case of minimization (using 1 \u2212 \u03b1) and maximization (using \u03b1), allowing for consideration of quantities for small \u03b1.",
+        "Average Value-at-Risk (AV@R) is closely related to the mean-deviation from quantile model and is defined as AV@R[Z] := inf{t + \u03b1\u207b\u00b9E[Z \u2212 t]+}. The constraint AV@R[Zx] \u2264 0 is equivalent to the constraint inf{t + \u03b1\u207b\u00b9E[Z \u2212 t]+} \u2264 0 and gives a conservative approximation of the chance constraint V@R[Zx] \u2264 0.",
+        "The function \u03c1(t) := t + \u03b1\u207b\u00b9E[Z \u2212 t]+ is convex, and its derivative at t is 1 + \u03b1\u207b\u00b9[Hz(t) \u2212 1], provided that the cdf Hz(\u00b7) is continuous at t; the minimum of \u03c1(t) is attained on the interval [t*, t**], where t* and t** are the left- and right-side quantiles.",
+        "The function \u03c1(Z) := AV@R\u03b1(Z), defined on a space of random variables, is convex, and its derivative at t is equal to 1 + \u03b1\u207b\u00b9[Hz(t) \u2212 1], provided that the cdf Hz(\u00b7) is continuous at t."
+      ]
+    },
+    {
+      "topic": "Coherent Risk Measures",
+      "sub_topics": [
+        "A risk measure is a function \u03c1(Z) mapping a space Z of random variables to the extended real line, and is proper if \u03c1(Z) > -\u221e for all Z \u2208 Z and its domain {Z \u2208 Z : \u03c1(Z) < +\u221e} is nonempty. A risk measure \u03c1(Z) maps uncertain outcomes Z into the extended real line, where Z represents a space of allowable random functions, and the risk measure is considered proper if \u03c1(Z) > \u2212\u221e for all Z and the domain is nonempty. Risk measures are used to quantify risk, with a focus on spaces Z := Lp(\u03a9, F, P) where p \u2208 [1, +\u221e).",
+        "Coherent risk measures satisfy convexity (R1), monotonicity (R2), translation equivariance (R3), and positive homogeneity (R4), providing a consistent framework for risk assessment. Average Value-at-Risk is an example of a coherent risk measure. Axioms for risk measures include: Convexity (R1), ensuring diversification benefits; Monotonicity (R2), where if Z > Z', then p(Z) \u2265 p(Z'); Translation equivariance (R3), where p(Z + a) = p(Z) + a; and Positive homogeneity (R4), where p(tZ) = tp(Z) for t > 0.",
+        "The dual space Z* is associated with each space Z, and the scalar product is defined as (\u03b6, Z) := \u222b\u03a9 \u03b6(\u03c9)Z(\u03c9)dP(\u03c9); the conjugate function \u03c1*(\u03b6) is defined as supZ\u2208Z{(\u03b6, Z) \u2212 \u03c1(Z)}, and the biconjugate function \u03c1**(Z) is defined as sup\u03b6\u2208Z\u2217{(\u03b6, Z) \u2212 \u03c1*(\u03b6)}.",
+        "The Fenchel-Moreau theorem states that if \u03c1: Z \u2192 R is convex, proper, and lower semicontinuous, then \u03c1** = \u03c1, and the representation \u03c1(Z) = sup\u03b6\u2208Z\u2217{(\u03b6, Z) \u2212 \u03c1*(\u03b6)} holds.",
+        "Risk measures satisfying conditions (R1)-(R3) are proper and lower semicontinuous, then the representation holds with A being a subset of the set of probability density functions, where  P := {\u03b6 \u2208 Z\u2217 : \u222b\u03a9 \u03b6(\u03c9)dP(\u03c9) = 1, \u03b6 \u2265 0}.",
+        "The conjugate function \u03c1*(\u03b6) of a risk measure \u03c1 is defined as \u03c1*(\u03b6) := sup {\u27e8\u03b6, Z\u27e9 - \u03c1(Z)}, and the biconjugate function \u03c1**(Z) provides a representation if \u03c1 is convex, proper, and lower semicontinuous.",
+        "Theorems establish that if \u03c1 satisfies certain conditions, its representation holds with A := dom(\u03c1*), and conditions (R2), (R3), and (R4) correspond to properties of the set A, such as nonnegativity, integral to one, and being the support function.",
+        "If \u03c1 satisfies conditions (R1)-(R3) and is proper and lower semicontinuous, then its representation holds with A being a subset of probability density functions, and if \u03c1 is positively homogeneous, its conjugate is the indicator function of a convex set A C Z*.",
+        "Differentiability properties of risk measures are explored, including the subdifferential \u2202\u03c1(Z) and Hadamard directional differentiability, with connections to composite functions and the chain rule."
+      ]
+    },
+    {
+      "topic": "Risk Averse Optimization",
+      "sub_topics": [
+        "Stochastic optimization problems involve objective functions defined as the expected value, E[F(x, w)], where F models random outcomes dependent on decision variables x and random variable w. The goal is to minimize f(x) over a feasible set X.",
+        "Risk-averse preferences in stochastic optimization are addressed using expected utility theory, where scalar transformations u(Z) of random outcomes Z are considered, and decisions are based on E[u(Z)]. In minimization problems, a risk-averse approach prefers a random outcome Z\u2081 over Z\u2082 if E[u(Z\u2081)] < E[u(Z\u2082)], where u is a nondecreasing and convex disutility function. Instead of minimizing E[F(x, w)], risk-averse optimization minimizes E[u(F(x, w))], where u is a disutility function, assumed to be nondecreasing and convex, ensuring that a certain outcome is preferred over a random one.",
+        "Mean-risk models characterize uncertain outcomes Zx(w) using two scalar characteristics: the mean E[Z] and the risk measure D[Z], which quantifies the uncertainty of the outcome. Efficient solutions in mean-risk models are found by minimizing risk for a given mean value or maximizing the mean for a given risk value, formulated as a parametric optimization problem using scalarization techniques.",
+        "For a coefficient c > 0, a composite objective functional \u03c1[Z] := E[Z] + cD[Z] is formed, where c represents the price of risk, and the optimization problem becomes Min E[Zx] + cD[Zx].",
+        "Central semideviations are a class of risk functionals used in mean-risk models, with the upper semideviation of order p defined as \u03c3+p[Z] := (E[(Z \u2212 E[Z])p]+)1/p, penalizing excesses over the mean in minimization problems, with the general form of the mean-risk model being Min E[Zx] + c\u03c3p[Zx].",
+        "The Average Value-at-Risk (AV@R) is defined as AV@R(Z) := inf {t + \u03b1\u207b\u00b9E[Z - t]+}, representing the expected loss exceeding the Value-at-Risk (V@R) at level \u03b1, and is related to mean deviations from quantiles."
+      ]
+    },
+    {
+      "topic": "Optimization of Risk Measures",
+      "sub_topics": [
+        "Optimization of risk measures involves minimizing a composite function \u03c6(\u00b7) := \u03c1(F(\u00b7)), where F: R\u207f \u2192 Z and \u03c1: Z \u2192 R, leading to problems of the form Min {\u03c6(x) := \u03c1(F(x))}.",
+        "When \u03c1 is the expectation operator, the problem becomes a risk-neutral stochastic problem; however, incorporating risk control motivates the use of various risk measures.",
+        "Under certain conditions, the minimax theorem allows interchanging the min and max operators, leading to a dual problem where the goal is to maximize the infimum of the Lagrangian function.",
+        "Duality results, based on convexity and lower semicontinuity, provide conditions under which there is no duality gap and optimal solutions exist for both the primal and dual problems.",
+        "A key result is that if a risk measure satisfies certain conditions and is continuous, then a saddle point exists, and the Karush-Kuhn-Tucker (KKT) conditions provide necessary and sufficient conditions for optimality.",
+        "The concept of nonanticipativity constraints is introduced, where decisions are based on available information, leading to a dualization framework and the formulation of a dual problem.",
+        "Interchangeability principle for risk measures allows to obtain relaxation of the optimization problem by removing nonanticipativity constraints."
+      ]
+    }
+  ]
+}

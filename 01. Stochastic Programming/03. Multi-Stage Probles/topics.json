@@ -1,0 +1,15 @@
+{
+  "topics": [
+    {
+      "topic": "Convexity in Probabilistic Optimization",
+      "sub_topics": [
+        "Probabilistic constraints are introduced, where the probability of satisfying a set of inequalities is greater than or equal to a certain level, leading to the concepts of joint and individual probabilistic constraints.",
+        "Stochastic dominance relations are defined, where a random variable X dominates another random variable Y in a certain order if their distribution functions satisfy specific inequalities.",
+        "Generalized concavity of functions and measures is explored, defining \u03b1-concave functions and their properties, such as log-concavity and quasi-concavity.",
+        "Concavity properties of probability measures are examined, focusing on \u03b1-concave measures and their relationship to the density function.",
+        "Convexity of probabilistically constrained sets is analyzed, providing conditions under which the feasible set defined by probabilistic constraints is convex and closed.",
+        "Dualization of nonanticipativity constraints is discussed, formulating the Lagrangian and dual problem, and deriving necessary conditions of optimality and duality relations."
+      ]
+    }
+  ]
+}
