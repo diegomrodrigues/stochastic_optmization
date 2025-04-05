@@ -11,10 +11,6 @@ base_dir = "."  # Change this to your actual base directory path
 
 # Define directories to exclude from processing
 EXCLUDE_DIRS = [
-    "01. Stochastic Programming Models",
-    "02. Two-Stages Problems",
-    "03. Multi-Stage Probles",
-    "04. Statistical Inference"
 ]
 
 # Get all directories in the base directory
